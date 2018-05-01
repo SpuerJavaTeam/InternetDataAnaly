@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://118.89.44.152:3306/javabean</property>
+		<property name="connection.username">javabean</property>
+		<property name="connection.password">@password</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="c3p0.max_size">20</property>
+		<property name="c3p0.min_size">5</property>
+		<property name="c3p0.timeout">120</property>
+		<property name="c3p0.max_statements">100</property>
+		<property name="c3p0.idle_test_period">120</property>
+		<property name="c3p0.acquire_increment">2</property>
+		<property name="c3p0.validate">ture</property>
+		<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+		<property name="show_sql">true</property>
+		
+		<mapping resource="user/Bean/UserInfo.hbm.xml"/>
+		<mapping resource="user/Bean/UserRole.hbm.xml"/>
+		<mapping resource="file/Bean/FileInfo.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>
