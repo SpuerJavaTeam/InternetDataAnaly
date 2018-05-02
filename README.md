@@ -11,7 +11,7 @@
     | sno      | varchar(20) | NO   | UNQ | NULL    |                |    
     | name     | varchar(50) | NO   |     | NULL    |                |
     | age      | varchar(5)  | NO   |     | NULL    |                |
-    | grade    | varchar(5) | No   |     | NULL    |                |
+    | grade    | varchar(5)  | No   |     | NULL    |                |
     |created_at| timestamp   | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
