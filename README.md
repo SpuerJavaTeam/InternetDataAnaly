@@ -2,12 +2,30 @@
 
 ## 后端数据库设计
 
-    id auto_increament
-    uid varchar(20)
-    name varchar(20)
-    age varchar(5)
-    date varchar(30)
-    url varchar(1000)
+    +----------------------------------------------------------------+
+    |                            user                                |
+    +----------+-------------+------+-----+---------+----------------+
+    | Field    | Type        | Null | Key | Default | Extra          |
+    +----------+-------------+------+-----+---------+----------------+
+    | uid      | int         | NO   | PRI |         | auto_increment |
+    | sno      | varchar(20) | NO   | UNQ | NULL    |                |    
+    | name     | varchar(50) | NO   |     | NULL    |                |
+    | age      | varchar(50) | NO   |     | NULL    |                |
+    | grade    | varchar(50) | No   |     | NULL    |                |
+    |created_at| timestamp   | No   |     | NULL    |                |
+    +----------+-------------+------+-----+---------+----------------+
+    
+    +----------------------------------------------------------------+
+    |                        internetdata                            |
+    +----------+-------------+------+-----+---------+----------------+
+    | Field    | Type        | Null | Key | Default | Extra          |
+    +----------+-------------+------+-----+---------+----------------+
+    | id       |int          | NO   | PRI |         | auto_increment |
+    | url      |varchar(1000)| NO   |     | NULL    |                |    
+    | date     |date         | NO   |     | NULL    |                |
+    |created_at|timestamp    | No   |     | NULL    |                |
+    +----------+-------------+------+-----+---------+----------------+
+    
 
 ## 前端设计
 
