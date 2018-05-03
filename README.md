@@ -21,7 +21,7 @@
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | id       |int          | NO   | PRI |         | auto_increment |
-    | uid      |int          | NO   | UNQ |         |                |
+    | uid      |int          | NO   | UNQ |         |                |
     | url      |varchar(1000)| NO   |     | NULL    |                |    
     | date     |date         | NO   |     | NULL    |                | -- yyyy-mm-dd HH:mm:ss
     |created_at|timestamp    | No   |     | NULL    |                |
