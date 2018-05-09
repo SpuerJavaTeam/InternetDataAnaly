@@ -35,10 +35,10 @@ HADOOP服务端：分析数据并将结果上传<br>
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | uid      | int         | NO   | PRI |         | auto_increment |
-    | sno      | varchar(20) | NO   | UNQ | NULL    |                |    
+    | sno      | varchar(20) | NO   |     | NULL    |                |    
     | name     | varchar(50) | NO   |     | NULL    |                |
     | age      | varchar(5)  | NO   |     | NULL    |                |
-    | grade    | varchar(5)  | No   |     | NULL    |                |
+    | gender   | varchar(5)  | No   |     | NULL    |                |
     |created_at| timestamp   | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
@@ -48,8 +48,9 @@ HADOOP服务端：分析数据并将结果上传<br>
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | id       |int          | NO   | PRI |         | auto_increment |
+    | uid      |int          | NO   |     |         |                |
     | url      |varchar(1000)| NO   |     | NULL    |                |    
-    | date     |date         | NO   |     | NULL    |                |
+    | date     |date         | NO   |     | NULL    |                | -- yyyy-mm-dd HH:mm:ss
     |created_at|timestamp    | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
