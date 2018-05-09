@@ -58,7 +58,7 @@ HADOOP服务端：分析数据并将结果上传<br>
     | id       |int          | NO   | PRI |         | auto_increment |
     | uid      |int          | NO   |     |         |                |
     | url      |varchar(1000)| NO   |     |         |                |    
-    | date     |date         | NO   |     |         |                | -- yyyy-mm-dd HH:mm:ss
+    | date     |datetime     | NO   |     |         |                | -- yyyy-mm-dd HH:mm:ss
     |created_at|timestamp    | No   |     |         |                |
     +----------+-------------+------+-----+---------+----------------+
     
