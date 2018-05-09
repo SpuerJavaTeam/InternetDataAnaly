@@ -1,4 +1,4 @@
 WebContent\WEB-INF\lib\hadoop
-
+.idea
 src/hibernate.cfg.xml
 .idea/workspace.xml
