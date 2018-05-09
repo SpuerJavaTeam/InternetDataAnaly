@@ -9,9 +9,9 @@ public class Database {
 
     public static String MySQLDriver = "com.mysql.jdbc.Driver";
 
-    public static String DBurl = "jdbc:mysql://118.89.44.152:3306/javabean";
+    public static String DBurl = "jdbc:mysql://localhost:3306/javabean";
 
-    public static String username = "javabean";
+    public static String username = "root";
 
-    public static String password = "@password";
+    public static String password = "password";
 }
