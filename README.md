@@ -11,7 +11,7 @@
     | sno      | varchar(20) | NO   |     | NULL    |                |    
     | name     | varchar(50) | NO   |     | NULL    |                |
     | age      | varchar(5)  | NO   |     | NULL    |                |
-    | grade    | varchar(5)  | No   |     | NULL    |                |
+    | gender   | varchar(5)  | No   |     | NULL    |                |
     |created_at| timestamp   | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
