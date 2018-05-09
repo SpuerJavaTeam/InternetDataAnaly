@@ -8,7 +8,7 @@
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | uid      | int         | NO   | PRI |         | auto_increment |
-    | sno      | varchar(20) | NO   | UNQ | NULL    |                |    
+    | sno      | varchar(20) | NO   |     | NULL    |                |    
     | name     | varchar(50) | NO   |     | NULL    |                |
     | age      | varchar(5)  | NO   |     | NULL    |                |
     | grade    | varchar(5)  | No   |     | NULL    |                |
