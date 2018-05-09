@@ -5,3 +5,5 @@ build/*
 
 src/hibernate.cfg.xml
 .gitignore
+.classpath
+.project
