@@ -18,10 +18,5 @@
 		<property name="c3p0.validate">ture</property>
 		<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
 		<property name="show_sql">true</property>
-		
-		<mapping resource="user/Bean/UserInfo.hbm.xml"/>
-		<mapping resource="user/Bean/UserRole.hbm.xml"/>
-		<mapping resource="file/Bean/FileInfo.hbm.xml"/>
-		
 	</session-factory>
 </hibernate-configuration>
