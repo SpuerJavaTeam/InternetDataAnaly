@@ -66,7 +66,7 @@ HADOOP服务端：分析数据并将结果上传<br>
       id int(11) NOT NULL AUTO_INCREMENT,
       uid int(11) NOT NULL,
       url varchar(1000) NOT NULL,
-      date date NOT NULL,
+      date datetime NOT NULL,
       created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
       PRIMARY KEY (id),
       KEY fk_001 (uid),
