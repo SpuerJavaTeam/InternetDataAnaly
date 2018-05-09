@@ -37,20 +37,18 @@ HADOOP服务端：分析数据并将结果上传<br>
     | uid      | int         | NO   | PRI |         | auto_increment |
     | sno      | varchar(20) | NO   |     | NULL    |                |    
     | name     | varchar(50) | NO   |     | NULL    |                |
-    | age      | varchar(5)  | NO   |     | NULL    |                |
-    | gender   | varchar(5)  | No   |     | NULL    |                |
-    |created_at| timestamp   | No   |     | NULL    |                |
+    | gender   | varchar(5)  | NO   |     | NULL    |                |
+    |created_at| timestamp   | NO   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
-    create table javabean.user(
-        uid int auto_increment,
-        sno varchar(20) not null,
-        name varchar(20) not null,
-        age varchar(5) not null,
-        gender varchar(5) default null,
-        created_at timestamp,
-        primary key(uid)
-    )
+    CREATE TABLE user (
+      uid int(11) NOT NULL AUTO_INCREMENT,
+      sno varchar(20) NOT NULL,
+      name varchar(20) NOT NULL,
+      gender varchar(5) NOT NULL,
+      created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      PRIMARY KEY (uid)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
     
     +----------------------------------------------------------------+
     |                        internetdata                            |
@@ -64,15 +62,55 @@ HADOOP服务端：分析数据并将结果上传<br>
     |created_at|timestamp    | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
-    create table internetdata(
-        id int AUTO_INCREMENT,
-        uid int not null,
-        url varchar(1000) not null,
-        date date not null,
-        created_at timestamp not null,
-        primary key(id)
-    );
-    alter table javbeaninternetdata add constraint fk_001 foreign key(uid) references javabean.user(uid);
+    CREATE TABLE internetdata (
+      id int(11) NOT NULL AUTO_INCREMENT,
+      uid int(11) NOT NULL,
+      url varchar(1000) NOT NULL,
+      date date NOT NULL,
+      created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      PRIMARY KEY (id),
+      KEY fk_001 (uid),
+      CONSTRAINT fk_001 FOREIGN KEY (uid) REFERENCES user (uid)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+    
+    +----------------------------------------------------------------+
+    |                        setting                                 |
+    +----------+-------------+------+-----+---------+----------------+
+    | Field    | Type        | Null | Key | Default | Extra          |
+    +----------+-------------+------+-----+---------+----------------+
+    | id       |int          | NO   | PRI |         | auto_increment |
+    | _key     |varchar(255) | NO   |     |         |                |
+    | _value   |varchar(255) | NO   |     | NULL    |                |
+    |created_at|timestamp    | No   |     | NULL    |                |
+    +----------+-------------+------+-----+---------+----------------+
+    
+    CREATE TABLE setting (
+      id int(11) NOT NULL AUTO_INCREMENT,
+      key varchar(255) NOT NULL,
+      vaule varchar(255) NOT NULL,
+      created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      PRIMARY KEY (id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+    
+    +----------------------------------------------------------------+
+    |                        output                                  |
+    +----------+-------------+------+-----+---------+----------------+
+    | Field    | Type        | Null | Key | Default | Extra          |
+    +----------+-------------+------+-----+---------+----------------+
+    | id       |int          | NO   | PRI |         | auto_increment |
+    | _key     |varchar(255) | NO   |     |         |                |
+    | _value   |varchar(255) | NO   |     | NULL    |                |
+    |created_at|timestamp    | No   |     | NULL    |                |
+    +----------+-------------+------+-----+---------+----------------+
+    
+    CREATE TABLE output (
+      id int(11) NOT NULL,
+      key varchar(255) NOT NULL DEFAULT '0',
+      value varchar(255) NOT NULL DEFAULT '0',
+      PRIMARY KEY (id)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+    
+
     
 
 ## 前端设计
