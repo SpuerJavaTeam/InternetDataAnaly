@@ -1,5 +1,7 @@
 WebContent/WEB-INF/lib/*
 .idea/*
+.setting/*
+build/*
 
 src/hibernate.cfg.xml
 .gitignore
