@@ -35,10 +35,10 @@ HADOOP服务端：分析数据并将结果上传<br>
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | uid      | int         | NO   | PRI |         | auto_increment |
-    | sno      | varchar(20) | NO   |     | NULL    |                |    
-    | name     | varchar(50) | NO   |     | NULL    |                |
-    | gender   | varchar(5)  | NO   |     | NULL    |                |
-    |created_at| timestamp   | NO   |     | NULL    |                |
+    | sno      | varchar(20) | NO   |     |         |                |    
+    | name     | varchar(50) | NO   |     |         |                |
+    | gender   | varchar(5)  | NO   |     |         |                |
+    |created_at| timestamp   | NO   |     |         |                |
     +----------+-------------+------+-----+---------+----------------+
     
     CREATE TABLE user (
@@ -57,9 +57,9 @@ HADOOP服务端：分析数据并将结果上传<br>
     +----------+-------------+------+-----+---------+----------------+
     | id       |int          | NO   | PRI |         | auto_increment |
     | uid      |int          | NO   |     |         |                |
-    | url      |varchar(1000)| NO   |     | NULL    |                |    
-    | date     |date         | NO   |     | NULL    |                | -- yyyy-mm-dd HH:mm:ss
-    |created_at|timestamp    | No   |     | NULL    |                |
+    | url      |varchar(1000)| NO   |     |         |                |    
+    | date     |date         | NO   |     |         |                | -- yyyy-mm-dd HH:mm:ss
+    |created_at|timestamp    | No   |     |         |                |
     +----------+-------------+------+-----+---------+----------------+
     
     CREATE TABLE internetdata (
@@ -79,9 +79,9 @@ HADOOP服务端：分析数据并将结果上传<br>
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | id       |int          | NO   | PRI |         | auto_increment |
-    | _key     |varchar(255) | NO   |     |         |                |
-    | _value   |varchar(255) | NO   |     | NULL    |                |
-    |created_at|timestamp    | No   |     | NULL    |                |
+    | key      |varchar(255) | NO   |     |         |                |
+    | value    |varchar(255) | NO   |     |         |                |
+    |created_at|timestamp    | No   |     |         |                |
     +----------+-------------+------+-----+---------+----------------+
     
     CREATE TABLE setting (
@@ -98,9 +98,9 @@ HADOOP服务端：分析数据并将结果上传<br>
     | Field    | Type        | Null | Key | Default | Extra          |
     +----------+-------------+------+-----+---------+----------------+
     | id       |int          | NO   | PRI |         | auto_increment |
-    | _key     |varchar(255) | NO   |     |         |                |
-    | _value   |varchar(255) | NO   |     | NULL    |                |
-    |created_at|timestamp    | No   |     | NULL    |                |
+    | key      |varchar(255) | NO   |     |         |                |
+    | value    |varchar(255) | NO   |     |         |                |
+    |created_at|timestamp    | NO   |     |         |                |
     +----------+-------------+------+-----+---------+----------------+
     
     CREATE TABLE output (
