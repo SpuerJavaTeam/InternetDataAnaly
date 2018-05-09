@@ -4,6 +4,5 @@ WebContent/WEB-INF/lib/*
 build/*
 
 src/hibernate.cfg.xml
-.gitignore
 .classpath
 .project
