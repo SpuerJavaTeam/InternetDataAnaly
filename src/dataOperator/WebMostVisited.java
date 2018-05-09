@@ -5,7 +5,7 @@ package dataOperator;
  *@create 2018-05-08 14:41
  */
 
-import Setting.Database;
+import setting.Database;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

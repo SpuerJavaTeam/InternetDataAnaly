@@ -1,4 +1,4 @@
-package Setting;
+package setting;
 /*
  *全局配置描述文件
  *@author gh
