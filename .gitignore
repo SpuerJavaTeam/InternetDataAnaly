@@ -3,7 +3,6 @@ WebContent/WEB-INF/lib/*
 .setting/*
 build/*
 src/setting/*
-src/Setting/*
 
 src/hibernate.cfg.xml
 .classpath
