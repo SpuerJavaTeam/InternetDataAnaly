@@ -82,7 +82,8 @@ public class WebMostVisited {
         }
     }
 
-    public static class SQLReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public static class SQLReducer
+            extends Reducer<Text, IntWritable, Text, IntWritable> {
         @Override
         protected void reduce(Text key, Iterable<IntWritable> values, Context context)
                 throws IOException, InterruptedException {
