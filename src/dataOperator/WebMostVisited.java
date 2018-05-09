@@ -5,12 +5,14 @@ package dataOperator;
  *@create 2018-05-08 14:41
  */
 
+import Setting.Database;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapred.lib.db.DBConfiguration;
+import org.apache.hadoop.mapred.lib.db.DBOutputFormat;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -23,79 +25,111 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
 
 public class WebMostVisited {
 
-
-    public static class table implements DBWritable, Writable {
-        protected String field1;
-        protected String field2;
-        protected String field3;
-        protected String field4;
-        protected String field5;
+    public static class DataTable implements DBWritable, Writable {
+        protected String sno;
+        protected String name;
+        protected String gender;
+        protected String url;
+        protected String date;
 
         @Override
-        public void readFields(DataInput in) {
-
+        public void readFields(DataInput in) throws IOException {
+            this.sno = Text.readString(in);
+            this.name = Text.readString(in);
+            this.gender = Text.readString(in);
+            this.url = Text.readString(in);
+            this.date = Text.readString(in);
         }
 
         @Override
-        public void readFields(ResultSet resultSet) {
-
+        public void readFields(ResultSet resultSet) throws SQLException {
+            this.sno = resultSet.getString(1);
+            this.name = resultSet.getString(2);
+            this.gender = resultSet.getString(3);
+            this.url = resultSet.getString(4);
+            this.date = resultSet.getString(5);
         }
 
         @Override
-        public void write(DataOutput out) {
-
+        public void write(DataOutput out) throws IOException {
+            Text.writeString(out,this.sno);
+            Text.writeString(out,this.name);
+            Text.writeString(out,this.gender);
+            Text.writeString(out,this.url);
+            Text.writeString(out,this.date);
         }
 
         @Override
-        public void write(PreparedStatement statement) {
-
+        public void write(PreparedStatement statement) throws SQLException {
+            statement.setString(1,this.sno);
+            statement.setString(2,this.name);
+            statement.setString(3,this.gender);
+            statement.setString(4,this.url);
+            statement.setString(5,this.date);
         }
     }
 
     public static class SQLMapper
-            extends Mapper<LongWritable, Text, Text, Text> {
+            extends Mapper<LongWritable, DataTable, Text, IntWritable> {
         @Override
-        protected void map(LongWritable key, Text value, Context context)
+        protected void map(LongWritable key, DataTable value, Context context)
                 throws IOException, InterruptedException {
-            super.map(key, value, context);
+            context.write(new Text(value.url), new IntWritable(1));
         }
     }
 
-    public static class SQLReducer extends Reducer<Text, Text, Text, IntWritable> {
+    public static class SQLReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         @Override
-        protected void reduce(Text key, Iterable<Text> values, Context context)
+        protected void reduce(Text key, Iterable<IntWritable> values, Context context)
                 throws IOException, InterruptedException {
-            super.reduce(key, values, context);
+            int sum = 0;
+            Iterator<IntWritable> iterator = values.iterator();
+            while (iterator.hasNext()){
+                sum+=iterator.next().get();
+            }
+            context.write(key, new IntWritable(sum));
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration configuration = new Configuration();
         configuration.set("arg","arg");
         DBConfiguration.configureDB(
                 configuration,
-                "com.mysql.jdbc.Driver",
-                "jdbc:mysql://118.89.44.152:3306/javabean",
-                "javabean",
-                "@password"
+                Database.MySQLDriver,
+                Database.DBurl,
+                Database.username,
+                Database.password
         );
         Job job = Job.getInstance(configuration, "WebMostVisited");
         job.setJarByClass(WebMostVisited.class);
         job.setMapperClass(SQLMapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(Text.class);
+        job.setCombinerClass(SQLReducer.class);
         job.setReducerClass(SQLReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
-        String[] inFields = {};
-        job.getJobState()
-//        DBInputFormat.setInput(
-//                job,
-//
-//        );
+        job.setInputFormatClass(DBInputFormat.class);
+        job.setOutputFormatClass(DBOutputFormat.class);
+        DBInputFormat.setInput(
+                job,
+                DataTable.class,
+                "select user.sno, user. name, user.gender, internetdata.url, internetdate.date " +
+                        "from user, internetdata " +
+                        "where user.uid=internetdata.uid",
+                ""
+        );
+        DBOutputFormat.setOutput(
+                job,
+                "output",
+                "key","vaule"
+        );
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 
 }
