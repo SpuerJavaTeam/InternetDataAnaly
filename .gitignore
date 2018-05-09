@@ -2,6 +2,8 @@ WebContent/WEB-INF/lib/*
 .idea/*
 .setting/*
 build/*
+src/setting/*
+src/Setting/*
 
 src/hibernate.cfg.xml
 .classpath
