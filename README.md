@@ -42,6 +42,16 @@ HADOOP服务端：分析数据并将结果上传<br>
     |created_at| timestamp   | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
     
+    create table javabean.user(
+        uid int auto_increment,
+        sno varchar(20) not null,
+        name varchar(20) not null,
+        age varchar(5) not null,
+        gender varchar(5) default null,
+        created_at timestamp,
+        primary key(uid)
+    )
+    
     +----------------------------------------------------------------+
     |                        internetdata                            |
     +----------+-------------+------+-----+---------+----------------+
@@ -53,6 +63,16 @@ HADOOP服务端：分析数据并将结果上传<br>
     | date     |date         | NO   |     | NULL    |                | -- yyyy-mm-dd HH:mm:ss
     |created_at|timestamp    | No   |     | NULL    |                |
     +----------+-------------+------+-----+---------+----------------+
+    
+    create table internetdata(
+        id int AUTO_INCREMENT,
+        uid int not null,
+        url varchar(1000) not null,
+        date date not null,
+        created_at timestamp not null,
+        primary key(id)
+    );
+    alter table javbeaninternetdata add constraint fk_001 foreign key(uid) references javabean.user(uid);
     
 
 ## 前端设计
