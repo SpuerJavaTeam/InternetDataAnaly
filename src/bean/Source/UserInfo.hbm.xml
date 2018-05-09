@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    	<class name="bean.Source.UserInfo" table="user">
+    		<id name="uid" column="uid" type="integer">
+    			<generator class="native"></generator>
+    		</id>
+    		
+    		<property name="sno" column="sno" type="string"/>
+    		<property name="name" column="name" type="string"/>
+    		<property name="gender" column="gender" type="string"/>
+    		
+    		<set name="internetdataInfos" table="internetdata">
+	    		<key column="uid"></key>
+	    		<one-to-many class="bean.Source.InternetdataInfo"/>
+    		</set>
+    	</class>
+    </hibernate-mapping>
