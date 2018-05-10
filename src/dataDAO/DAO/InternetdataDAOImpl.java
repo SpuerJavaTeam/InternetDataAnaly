@@ -1,5 +1,6 @@
 package dataDAO.DAO;
 
+import dataDAO.SessionUtil.SessionUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -14,7 +15,7 @@ public class InternetdataDAOImpl implements InternetdataDAO{
 		Session session=null;
 		Transaction transaction=null;
 		try{
-			session=SessionUtil.getFactory().openSession();
+			session= SessionUtil.getFactory().openSession();
 			transaction=session.beginTransaction();
 			session.saveOrUpdate(internetdataInfo);
 			transaction.commit();
