@@ -5,8 +5,15 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<<<<<<< HEAD
 		<property name="connection.url">jdbc:mysql://118.89.44.152:3306/javabean</property>
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+=======
+		<property name="connection.url">jdbc:mysql://localhost:3306/javabean</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">888</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+>>>>>>> 53231876ae9dd21d1dde64d888df1c4e5d18f7f2
 		<property name="c3p0.max_size">20</property>
 		<property name="c3p0.min_size">5</property>
 		<property name="c3p0.timeout">120</property>
@@ -16,6 +23,7 @@
 		<property name="c3p0.validate">ture</property>
 		<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
 		<property name="show_sql">true</property>
+<<<<<<< HEAD
         <mapping resource="bean/Generate/InternetdataEntity.hbm.xml"/>
         <mapping resource="bean/Generate/OutputEntity.hbm.xml"/>
         <mapping resource="bean/Generate/SettingEntity.hbm.xml"/>
@@ -23,3 +31,15 @@
 
     </session-factory>
 </hibernate-configuration>
+=======
+<<<<<<< HEAD
+		
+		<mapping resource="bean/Source/UserInfo.hbm.xml"/>
+		<mapping resource="bean/Source/InternetdataInfo.hbm.xml"/>
+		
+=======
+
+>>>>>>> bafc26ddd3ebdd7066063e2ba4349527831f7db8
+	</session-factory>
+</hibernate-configuration>
+>>>>>>> 53231876ae9dd21d1dde64d888df1c4e5d18f7f2

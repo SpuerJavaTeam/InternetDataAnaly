@@ -1,6 +1,12 @@
 package dataDAO.DAO;
 
+<<<<<<< HEAD
+import java.util.List;
+
+import org.hibernate.Criteria;
+=======
 import dataDAO.SessionUtil.SessionUtil;
+>>>>>>> bafc26ddd3ebdd7066063e2ba4349527831f7db8
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -31,5 +37,24 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return ret;
 
+	}
+
+	@Override
+	public List<UserInfo> showall() {
+		List<UserInfo> ret=null;
+		Session session=null;
+		try {
+			session=SessionUtil.getFactory().openSession();
+			Criteria criteria=session.createCriteria(UserInfo.class);
+			ret=criteria.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ret=null;
+		} finally {
+			if (session!=null) {
+				session.close();
+			}
+		}
+		return ret ;
 	}
 }

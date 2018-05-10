@@ -58,7 +58,7 @@ HADOOP服务端：分析数据并将结果上传<br>
     | id       |int          | NO   | PRI |         | auto_increment |
     | uid      |int          | NO   |     |         |                |
     | url      |varchar(1000)| NO   |     |         |                |    
-    | date     |date         | NO   |     |         |                | -- yyyy-mm-dd HH:mm:ss
+    | date     |datetime     | NO   |     |         |                | -- yyyy-mm-dd HH:mm:ss
     |created_at|timestamp    | No   |     |         |                |
     +----------+-------------+------+-----+---------+----------------+
     
@@ -66,7 +66,7 @@ HADOOP服务端：分析数据并将结果上传<br>
       id int(11) NOT NULL AUTO_INCREMENT,
       uid int(11) NOT NULL,
       url varchar(1000) NOT NULL,
-      date date NOT NULL,
+      date datetime NOT NULL,
       created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
       PRIMARY KEY (id),
       KEY fk_001 (uid),
