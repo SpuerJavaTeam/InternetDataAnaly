@@ -5,6 +5,7 @@
 	<struts>
 		<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 		<constant name="struts.devMode" value="true"/>
+		<constant name="struts.action.excludePattern" value="/static/.*?" />
 		<package name="all" namespace="/"  extends="struts-default" >
 			<action name="datacreator" class="dataShower.Server.DataCreatorAction">
 				<result name="success">./creatOK.jsp</result>
