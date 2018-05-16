@@ -1,12 +1,8 @@
 package dataDAO.DAO;
 
-<<<<<<< HEAD
 import java.util.List;
-
 import org.hibernate.Criteria;
-=======
 import dataDAO.SessionUtil.SessionUtil;
->>>>>>> bafc26ddd3ebdd7066063e2ba4349527831f7db8
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
